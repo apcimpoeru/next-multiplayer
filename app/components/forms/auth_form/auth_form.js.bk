@@ -1,0 +1,111 @@
+import { useState, useRef } from 'react';
+import styles from "./auth_form.module.css";
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
+
+async function createUser(email, password){
+
+    const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        body: JSON.stringify({ email, password }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong!');
+    }
+
+    return data;
+
+}
+
+function AuthForm(){
+    
+    const emailInputRef = useRef();
+    const passwordInputRef = useRef();
+    const router = useRouter();
+
+    const [isLogin, setIsLogin] = useState(true);
+    const [errorMessage, setErrorMessage] = useState(null);
+
+    function switchAuthModeHandler() {
+        setIsLogin((prevState) => !prevState);
+    }
+
+    async function submitHandler(){
+
+        const enteredEmail = emailInputRef.current.value;
+        const enteredPassword = passwordInputRef.current.value;
+
+        if (isLogin){
+
+            console.log('logging in');
+
+            const result = await signIn('credentials', {
+                redirect: false,
+                email: enteredEmail,
+                password: enteredPassword,
+            });
+
+            console.log(result);
+            
+            if (!result.error){
+                router.replace('/test');
+            } else {
+                setErrorMessage('Wrong username or password');
+            }
+            
+
+        } else {
+            const result = await createUser(enteredEmail, enteredPassword);
+
+            if (result.message){
+                setErrorMessage(result.message);
+            } else {
+                setErrorMessage('check console');
+                console.log(result);
+            }
+
+        }
+
+    }
+
+    return <div className='auth_form'>
+        <div className="p-10 text-center block">
+
+            <div className='mb-4'>
+                <label className='block text-lg mb-2' htmlFor="email">Your Email:</label>
+                <input className={`${styles.input}`} type='email' id='email' required ref={emailInputRef} />
+            </div>
+
+            <div className='mb-8'>
+                <label className='block text-lg mb-2' htmlFor="password">Your Password:</label>
+                <input className={styles.input} type='password' id='password' required ref={passwordInputRef} />
+            </div>
+
+            <p className='mb-8 font-bold'>{errorMessage}</p>
+
+            <button 
+                onClick={submitHandler}
+                className={`bg-primary-button text-white font-bold ${styles.button} m-auto mb-4`}>
+                    {isLogin ? 'Login' : 'Create Account'}
+            </button>
+
+            <button
+                type='button'
+                className={`bg-secondary-button text-black border-2 border-black font-bold ${styles.button} m-auto`}
+                onClick={switchAuthModeHandler}>
+                {isLogin ? 'Create new account' : 'Login with existing account'}
+            </button>
+
+            <a className="mt-4 block m-auto" href=''>Forgot password?</a>
+
+        </div>
+    </div>
+}
+
+export default AuthForm;

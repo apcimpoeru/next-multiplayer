@@ -1,0 +1,7 @@
+.input {
+    @apply border-2 border-black text-xl px-8 py-2 rounded-xl;
+}
+
+.button {
+    @apply py-2 px-8 rounded-xl block block;
+}
