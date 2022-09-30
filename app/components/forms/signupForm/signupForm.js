@@ -24,10 +24,6 @@ export default function SignupForm(){
         let email = emailRef.current.value;
         let confirmPassword = confirmPasswordRef.current.value;
 
-        console.log('username', username);
-        console.log('password', password);
-        console.log('email', email);
-
         let error = {};
 
         if (!username){
@@ -78,8 +74,6 @@ export default function SignupForm(){
                 throw new Error(data.message || 'Something went wrong!');
             }
 
-            console.log(data);
-            
             const result = await signIn('credentials', {
                 redirect: false,
                 email: username,
@@ -90,24 +84,8 @@ export default function SignupForm(){
                 router.replace('/');
             }
 
-            console.log(result);
-
         }
 
-
-        // const result = await signIn('credentials', {
-        //     redirect: false,
-        //     email: username,
-        //     password: password,
-        // });
-
-        // if (!result.error){
-        //     router.replace('/');
-        // } else {
-        //     setError('Wrong username or password');
-        // }
-
-        // console.log(result);
 
     }
 

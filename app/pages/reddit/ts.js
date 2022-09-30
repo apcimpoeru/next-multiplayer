@@ -23,7 +23,6 @@ export default function Test() {
         }
 
         let result = data.result;
-        console.log(result);
 
     }
 

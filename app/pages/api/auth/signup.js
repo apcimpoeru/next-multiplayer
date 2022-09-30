@@ -5,8 +5,6 @@ async function handler(req, res) {
 
     const data = req.body;
 
-    console.log(data);
-
     const { username, password } = data;
 
     const client = await connectToDatabase();

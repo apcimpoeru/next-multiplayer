@@ -1,8 +1,5 @@
 export default function createRoomHTML(rooms, selection = null, selectItem){
 
-    // console.log('rooms', rooms);
-    // console.log('selection', selection);
-
     let roomList = '';
 
     function joinRoom(){

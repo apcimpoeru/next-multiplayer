@@ -9,7 +9,7 @@ import getResult from "./endGame";
 import data from "./gameData";
 
 
-export default function testGame(props){
+export default function RspGame(props){
 
     const newGameTime = 5;
     const maxTimeLimit = 5;
@@ -103,11 +103,6 @@ export default function testGame(props){
             } else if (result.winner === undefined && result.result == 'lose'){
                 setResultString('You did not chose.');
             } else {
-                console.log('--------------------------');
-                console.log(opponentChoice);
-                console.log(result);
-                console.log(JSON.stringify(data));
-                console.log('--------------------------');
                 //setOpponentIcon(result.winner.url);
                 setResultString(result.winner + ' ' + result.action + ' ' + result.loser);
             }
@@ -177,7 +172,6 @@ export default function testGame(props){
             const id = setInterval(() => {
                 second_setCheck(second_check + 1);
                 secondTimer(second_check)
-                console.log(second_check);
             }, 1000);
             return () => clearInterval(id);
         }

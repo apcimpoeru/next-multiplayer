@@ -33,7 +33,7 @@ const Post = () => {
 }
 
   async function getPosts(term){
-    console.log('starting');
+
     const response = await fetch('/api/reddit/getTerms', {
         method: 'POST',
         body: JSON.stringify({ term:term }),
@@ -45,10 +45,9 @@ const Post = () => {
     const data = await response.json();
 
     const html = await getAnswersHtml(data);
-    console.log(data);
 
     setCardHtml(html);
-    console.log('SET');
+
   }
 
   useEffect(async () => {
@@ -56,17 +55,14 @@ const Post = () => {
       if (router.asPath !== router.route) {
           // router.query.lang is defined
           let term = router.query.slug;
-            console.log(term);
           setTerm(term);
           const data = await getPosts(term);
-            console.log(data);
       }
 
   }, [router])
 
   useEffect(async () => {
-    console.log("CHANGING");
-    console.log(cardHtml);
+
   } ,[cardHtml])
 
   return (

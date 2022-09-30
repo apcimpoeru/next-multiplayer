@@ -1,6 +1,5 @@
 import { useEffect, useState, useContext } from "react";
 import { SocketContext } from "../../../lib/socketContext";
-import RockPaperScissors from "../../game/games/rockPaperScissors/rockPaperScissors";
 
 async function leaveRoomAPI(){
     const response = await fetch('/api/game/rooms_update_leave', {
@@ -12,7 +11,7 @@ async function leaveRoomAPI(){
     });
 
     const data = await response.json();
-    console.log(data);
+
 }
 
 async function setRoomReady(roomName, socket){
@@ -27,11 +26,8 @@ async function setRoomReady(roomName, socket){
 
     const data = await response.json();
 
-    console.log(data);
-
     if (data.ready == true){
         socket.emit('all_ready_server', roomName);
-        console.log('all ready')
     }
 }
 
@@ -48,7 +44,6 @@ export default function gameLoader(props){
     useEffect(function(){
 
         socket.on('all_ready_client', function(roomName){
-            console.log('all ready client in ' + roomName);
             setGame(props.children);
             setActiveClass('hidden');
         })
@@ -65,7 +60,6 @@ export default function gameLoader(props){
         if (!ready){
             setReady(true);
             setRoomReady(props.roomName, socket);
-            console.log(props.roomName);
         }
     }
     return  <div>  

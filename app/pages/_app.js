@@ -19,9 +19,7 @@ function MyApp({ Component, pageProps, props }) {
       if (socket !== undefined) {
 
         socket.on('connect', function(){
-          console.log('socket connected');
           const socket = io({ query: { test: 'fme' } });
-          console.log('socket', socket);
       })
 
         setSocket(socket);

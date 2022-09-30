@@ -19,7 +19,6 @@ export default function Home() {
 
   useEffect(async function(){
     const data = await getRoomsFromDB();
-    console.log(data);
   }, [])
 
   return (

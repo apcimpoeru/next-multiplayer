@@ -41,18 +41,6 @@ async function handler(req, res) {
 
     });
 
-    console.log('');
-    console.log('');
-    console.log('joinedRoomsID: ', joinedRoomsID);
-    console.log('');
-    console.log('');
-
-    console.log('');
-    console.log('');
-    console.log('joinedRoomsName: ', joinedRoomsName);
-    console.log('');
-    console.log('');
-
     client.close()
     res.status(201).json({ result:result[0]._id });
 

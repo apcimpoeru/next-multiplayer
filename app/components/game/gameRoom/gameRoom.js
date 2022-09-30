@@ -1,9 +1,8 @@
-import RockPaperScissors from "../games/rockPaperScissors/rockPaperScissors";
 import { useState, useContext, useEffect } from "react";
 import { SocketContext } from "../../../lib/socketContext";
 import GameLoader from "../gameLoader/gameLoader";
-import TestGame from "../games/testGame/testGame";
-import io from 'socket.io-client';
+import RspGame from "../games/rspGame/rspGame";
+
 
 async function leaveGameAPI(roomName, socket){
 
@@ -31,14 +30,11 @@ export default function gameRoom(){
         if (Object.keys(socket).length !== 0){
 
             socket.on('start_game', function(roomNameData){
-
-                console.log('%c Starting game ! ' + roomNameData, 'background: #c20000; color: white; padding:10px');
-
                 setActiveClass('');
                 setRoomName(roomNameData);
 
                 // let gameComponent = <RockPaperScissors/>;
-                let gameComponent = <TestGame roomName={roomNameData} />;
+                let gameComponent = <RspGame roomName={roomNameData} />;
 
                 setGame(<><GameLoader roomName={roomNameData}>{gameComponent}</GameLoader></>);
                 

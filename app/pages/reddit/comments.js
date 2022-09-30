@@ -22,8 +22,6 @@ export default function Test() {
             throw new Error(data.message || 'Something went wrong!');
         }
 
-        console.log(data);
-
         return data;
         
 

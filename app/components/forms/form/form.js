@@ -21,10 +21,6 @@ export default function form(props){
             password: 'test',
         });
 
-        console.log('click');
-        console.log(username);
-        console.log(password);
-
         e.preventDefault();
         
     }

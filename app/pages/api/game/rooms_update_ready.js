@@ -32,13 +32,6 @@ export default async function handler(req, res) {
 
 	    	roomReady = room[0].ready;  	
 
-            console.log('');
-            console.log('');
-            console.log('room[0].ready.length', room[0].ready.length);
-            console.log('maxPlayers', maxPlayers);
-            console.log('');
-            console.log('');
-
 	    } 
 
 	    roomReady.push(connectedID);
@@ -53,13 +46,6 @@ export default async function handler(req, res) {
 		)
 
     	let result_msg;
-
-    	console.log('');
-    	console.log('');
-    	console.log('roomReady.length', roomReady.length);
-    	console.log('maxPlayers', maxPlayers);
-    	console.log('');
-    	console.log('');
 
 		if (roomReady.length == maxPlayers){
 	    	result_msg = true;

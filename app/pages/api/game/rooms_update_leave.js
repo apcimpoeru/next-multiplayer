@@ -23,14 +23,6 @@ export default async function handler(req, res) {
         { 'title' : roomName },
     ).toArray();
 
-    console.log('');
-	console.log('');
-	console.log('room name', roomName);
-	console.log('connectedID', connectedID);
-	console.log('room', room);
-	console.log('');
-	console.log('');
-
 	if (typeof room !== 'undefined' && room.length > 0) {
 
 	    let roomMembers = room[0].connected;

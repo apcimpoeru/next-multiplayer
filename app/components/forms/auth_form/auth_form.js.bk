@@ -43,16 +43,12 @@ function AuthForm(){
 
         if (isLogin){
 
-            console.log('logging in');
-
             const result = await signIn('credentials', {
                 redirect: false,
                 email: enteredEmail,
                 password: enteredPassword,
             });
-
-            console.log(result);
-            
+ 
             if (!result.error){
                 router.replace('/test');
             } else {
@@ -67,7 +63,6 @@ function AuthForm(){
                 setErrorMessage(result.message);
             } else {
                 setErrorMessage('check console');
-                console.log(result);
             }
 
         }

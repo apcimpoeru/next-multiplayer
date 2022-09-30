@@ -34,7 +34,6 @@ export default NextAuth({
           client.close();
           throw new Error('invalid');
         }
-        console.log(user);
         client.close();
         return { username: user.username };
       },

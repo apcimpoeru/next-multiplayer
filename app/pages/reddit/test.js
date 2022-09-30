@@ -30,7 +30,6 @@ export default function Test() {
 
                 if (result != null) {
                     matched.push(key );
-                    //console.log(term, string);
                 }
 
             }
@@ -74,10 +73,6 @@ export default function Test() {
             throw new Error(data.message || 'Something went wrong!');
         }
 
-        console.log('-----------------------------------------------------');
-        console.log('comments to check: ' + data.result.length);
-        console.log(data);
-
         for (let post of data.result){
 
             let title_match = matchTerms(post.title, countryData);
@@ -85,17 +80,10 @@ export default function Test() {
 
                 const update = await updateTerms(post.id, '');
 
-                console.log('id', post.id);
-                console.log('title', post.title);
-                console.log('title match', title_match);
-                console.log('update', update);
-                console.log('-----------------------------');
-
             }
 
         }
-        // console.log('title', k);
-        // console.log('text', kk);
+
     }
     
     async function getTerms(terms){
@@ -110,7 +98,6 @@ export default function Test() {
     
         const data = await response.json();
         
-        console.log(data);
     }
 
 

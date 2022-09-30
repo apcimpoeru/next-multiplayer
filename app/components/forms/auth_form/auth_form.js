@@ -31,8 +31,6 @@ export default function authForm(){
             setError('Wrong username or password');
         }
 
-        console.log(result);
-
     }
 
     return <div className="flex flex-col justify-center items-center">

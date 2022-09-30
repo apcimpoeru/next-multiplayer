@@ -24,7 +24,6 @@ export default function Test() {
   useEffect(async () => {
 
       let rooms = await getRoomsFromDB();
-      console.log(rooms);
 
   }, [])
 

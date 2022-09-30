@@ -29,7 +29,6 @@ export default function Test() {
             throw new Error(data.message || 'Something went wrong!');
         }
 
-        console.log(data);
 
     }
 
@@ -48,8 +47,6 @@ export default function Test() {
             throw new Error(data.message || 'Something went wrong!');
         }
 
-        console.log(data);
-
         return data;
         
 
@@ -64,8 +61,6 @@ export default function Test() {
         const result = await db.collection('history').find(
             { 'title' : roomName },
         ).toArray();
-
-        console.log(result);
 
     }
 

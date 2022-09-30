@@ -14,8 +14,6 @@ export default async function handler(req, res) {
 	let connectedID = req.body.socketID;
 	let roomName = req.body.roomName;
 
-	console.log('---------------- START -----------------');
-
 	await clientPromise;
     const client = await clientPromise;
     await client.connect();    
@@ -40,9 +38,6 @@ export default async function handler(req, res) {
 			   ]
 			)
 
-	    	console.log('------------------END ---------------');
-	    	//client.close();
-	    	console.log('------------------END2 ---------------');
 	    	if (result.acknowledged == true){
 	    		res.status(201).json({ result:true });
 	    	} else {
@@ -52,10 +47,7 @@ export default async function handler(req, res) {
 	    }
 
 	} else {
-
-		console.log('------------------END ---------------');
-		//client.close();
-		console.log('------------------END2  ---------------');
+		
 		res.status(201).json({ result:'no_rooms_found' });
 
 	}

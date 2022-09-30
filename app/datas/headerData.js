@@ -1,6 +1,6 @@
 export const headerData = {
 
-    logo:'Worky',
+    logo:'Multiplayer',
     // Text for logout button
     LogoutLink: [
         {
@@ -12,12 +12,6 @@ export const headerData = {
         {
             title:"Play",
             href:'/play'
-        },
-    ],
-    links: [
-        {
-            title:"History",
-            href:'/reddit/answered'
         },
     ],
     // Links only for logged out users
