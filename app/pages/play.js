@@ -15,12 +15,14 @@ export default function Test() {
 
 
     const socket = useContext(SocketContext);
-    const [notLoggedIn, setNotLoggedIn] = useState(<p className='mb-12'>You are not  
-                                            <Link href='/auth'>
-                                                <a className='underline'> logged in. </a>
-                                            </Link> 
-                                            You can play, but your score won't be recorded.
-                                        </p>);
+    
+    // TODO - save score in profile
+    // const [notLoggedIn, setNotLoggedIn] = useState(<p className='mb-12'>You are not  
+    //                                         <Link href='/auth'>
+    //                                             <a className='underline'> logged in. </a>
+    //                                         </Link> 
+    //                                         You can play, but your score won't be recorded.
+    //                                     </p>);
 
     return (
         <>
@@ -37,7 +39,7 @@ export default function Test() {
 
                 <GameRoom/>
                 
-                {notLoggedIn}
+                {/* {notLoggedIn} */}
 
                 <Selector/>
 

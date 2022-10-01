@@ -1,19 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { SocketContext } from "../../../lib/socketContext";
 
-async function leaveRoomAPI(){
-    const response = await fetch('/api/game/rooms_update_leave', {
-        method: 'POST',
-        body: JSON.stringify({ name:roomName }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
-
-    const data = await response.json();
-
-}
-
 async function setRoomReady(roomName, socket){
 
     const response = await fetch('/api/game/rooms_update_ready', {
@@ -33,8 +20,6 @@ async function setRoomReady(roomName, socket){
 
 export default function gameLoader(props){
     
-
-    let gameComponent = props.children;
     const socket = useContext(SocketContext);
 
     const [ready, setReady] = useState(false);
@@ -62,6 +47,7 @@ export default function gameLoader(props){
             setRoomReady(props.roomName, socket);
         }
     }
+    
     return  <div>  
                 {game}
                 <button className={`${activeClass} cursor-pointer`} onClick={isReady}>{ready ? "Ready! Waiting for others" : "Ready?"}</button>
