@@ -1,19 +1,19 @@
 
 # Nextjs Multiplayer Platform
 
-A brief description of what this project does and who it's for
+A Nextjs Multiplayer Platform for games with room functionality. Built with Nextjs and Socket.io. Contains Rock Paper Scissors, but easily extendable to other games if you wanna fork it. 
 
 
 ## Demo
 
-Insert gif or link to demo
+[You can test it here](http://137.184.83.232:3000/play)
 
 
 ## Installation
 
 You need Docker. 
 
-Once clones, you can just build the docker image:
+Once cloned, you can just build the docker image:
 
 ```bash
     docker-compose build
