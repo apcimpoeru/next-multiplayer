@@ -3,12 +3,6 @@
 
 A Nextjs Multiplayer Platform for games with room functionality. Built with Nextjs and Socket.io. Contains Rock Paper Scissors, but easily extendable to other games if you wanna fork it. 
 
-
-## Demo
-
-[You can test it here](http://137.184.83.232:3000/play)
-
-
 ## Installation
 
 You need Docker. 
